@@ -11,7 +11,7 @@ import {
 
 const router = Router();
 
-router.get("/usuario", async (req, res) => {
+router.get("/usuario", verificarAutenticacao, async (req, res) => {
   console.log("Rota GET /usuario solicitada");
   try {
     const usuarios = await selectUsuarios();
@@ -21,7 +21,7 @@ router.get("/usuario", async (req, res) => {
   }
 });
 
-router.get("/usuario/:id", async (req, res) => {
+router.get("/usuario/:id", verificarAutenticacao,  async (req, res) => {
   console.log(`Rota GET /usuario/${req.params.id} solicitada`);
   try {
     const usuario = await selectUsuario(req.params.id);
