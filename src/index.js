@@ -1,10 +1,14 @@
-import { selectUsuarios, selectUsuario, insertUsuario,  deleteUsuario, updateUsuario } from "./db/index.js";
 import dotenv from "dotenv";
 import express from "express";  
 import roteadorUsuario from "./routes/usuario.js";
 import roteadorLogin from "./routes/login.js";
-
-dotenv.config();
+import {
+  selectUsuario,
+  selectUsuarios,
+  insertUsuario,
+  deleteUsuario,
+  updateUsuario,
+} from "./db/index.js";
 
 const app = express();              
 const port = 3000;                  
