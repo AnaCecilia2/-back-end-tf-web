@@ -8,6 +8,11 @@ import {
   insertUsuario,
   deleteUsuario,
   updateUsuario,
+  selecAnuncios,
+  selectAnuncio,
+  insertAnuncio,
+  deleteAnuncio,
+  updateAnuncio,
 } from "./db/index.js";
 
 const app = express();              

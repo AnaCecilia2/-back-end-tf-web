@@ -66,4 +66,6 @@ router.delete("/usuario/:id", verificarAutenticacao,  async (req, res) => {
   }
 });
 
+
+
 export default router;

@@ -52,4 +52,76 @@ async function connect() {
     return res.rows[0];
   }
 
-  export { selectUsuarios,  selectUsuario, insertUsuario, deleteUsuario, updateUsuario, autenticarUsuario };
+  async function selectAnuncios() {
+    const client = await connect();
+    const res = await client.query("SELECT * FROM anuncio");
+    return res.rows;
+  }
+
+  async function selectAnuncio(id) {
+    const client = await connect();
+    const query = "SELECT * FROM anuncio WHERE id = $1";
+    const anuncio = [id];
+    const res = await client.query(query, anuncio);
+    return res.rows;
+}
+
+  async function insertAnuncio(data) {
+    const client = await connect();
+    const query = "INSERT INTO anuncio (nome, preco,) VALUES ($1,$2) ";
+    const usuario = [data.nome, data.preco];
+    await client.query(query, usuario);
+  }
+  
+  async function deleteAnuncio(id) {
+    const client = await connect();
+    const query = "DELETE FROM anuncio WHERE id = $1";
+    await client.query(query, [id]);
+  }
+
+  async function updateAnuncio(data) {
+    const client = await connect();
+    const query =
+      "UPDATE anuncio SET nome = $1, preco = $2 WHERE id = $4";
+    const anuncio = [data.nome, data.preco, data.id];
+    await client.query(query, anuncio);
+  }
+
+  
+  /*
+  async function selectTrocas() {
+    const client = await connect();
+    const res = await client.query("SELECT * FROM anuncio");
+    return res.rows;
+  }
+
+  async function selectTroca(id) {
+    const client = await connect();
+    const query = "SELECT * FROM anuncio WHERE id = $1";
+    const anuncio = [id];
+    const res = await client.query(query, anuncio);
+    return res.rows;
+}
+
+  async function insertTroca(data) {
+    const client = await connect();
+    const query = "INSERT INTO anuncio (nome, preco,) VALUES ($1,$2) ";
+    const usuario = [data.nome, data.preco];
+    await client.query(query, usuario);
+  }
+  
+  async function deleteTroca(id) {
+    const client = await connect();
+    const query = "DELETE FROM anuncio WHERE id = $1";
+    await client.query(query, [id]);
+  }
+
+  async function updateTroca(data) {
+    const client = await connect();
+    const query =
+      "UPDATE anuncio SET nome = $1, preco = $2 WHERE id = $4";
+    const usuario = [data.nome, data.email, data.senha, data.id];
+    await client.query(query, usuario);
+  }
+  */
+  export { selectUsuarios,  selectUsuario, insertUsuario, deleteUsuario, updateUsuario, autenticarUsuario, selectAnuncios,  selectAnuncio, insertAnuncio, deleteAnuncio, updateAnuncio/*, selectTrocas,  selectTroca, insertTroca, deleteTroca, updateTroca*/};
