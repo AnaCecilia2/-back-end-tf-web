@@ -12,11 +12,11 @@ const router = Router();
 
 
 
-router.get("/anuncio", verificarAutenticacao, async (req, res) => {
+router.get("/anuncio", async (req, res) => {
     console.log("Rota GET /anuncio solicitada");
     try {
-      const anuncio = await selectAnuncios();
-      res.json(anuncio);
+      const anuncios = await selectAnuncios();
+      res.json(anuncios);
     } catch (error) {
       res.status(error.status || 500).json({ message: error.message || "Erro!" });
     }
