@@ -25,7 +25,7 @@ router.get("/livro", verificarAutenticacao, async (req, res) => {
     console.log(`Rota GET /livro/${req.params.id} solicitada`);
     try {
       const livro = await selectLivro(req.params.id);
-      if (anuncio.length > 0) res.json(anuncio);
+      if (livro.length > 0) res.json(livro);
       else res.status(404).json({ message: "livro não encontrado!" });
     } catch (error) {
       res.status(error.status || 500).json({ message: error.message || "Erro!" });
@@ -45,8 +45,8 @@ router.get("/livro", verificarAutenticacao, async (req, res) => {
   router.put("/livro", verificarAutenticacao,  async (req, res) => {
     console.log("Rota PUT /livro solicitada");
     try {
-      const anuncio = await selectLivro(req.body.id);
-      if (anuncio.length > 0) {
+      const livro = await selectLivro(req.body.id);
+      if (livro.length > 0) {
         await updateLivro(req.body);
         res.status(200).json({ message: "livro atualizado com sucesso!" });
       } else res.status(404).json({ message: "livro não encontrado!" });
