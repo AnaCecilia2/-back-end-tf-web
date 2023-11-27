@@ -11,8 +11,9 @@ import {
 const router = Router();
 
 
+
 router.get("/anuncio", verificarAutenticacao, async (req, res) => {
-    console.log("Rota GET /usuario solicitada");
+    console.log("Rota GET /anuncio solicitada");
     try {
       const anuncio = await selectAnuncios();
       res.json(anuncio);

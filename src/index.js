@@ -8,7 +8,7 @@ import {
   insertUsuario,
   deleteUsuario,
   updateUsuario,
-  selecAnuncios,
+  selectAnuncios,
   selectAnuncio,
   insertAnuncio,
   deleteAnuncio,

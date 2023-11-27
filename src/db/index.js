@@ -24,8 +24,8 @@ async function connect() {
 
   async function insertUsuario(data) {
     const client = await connect();
-    const query = "INSERT INTO usuario (nome,senha,email) VALUES ($1,$2,$3) ";
-    const usuario = [data.nome, data.senha, data.email];
+    const query = "INSERT INTO usuario (nome,senha,email,contato) VALUES ($1,$2,$3,$4) ";
+    const usuario = [data.nome, data.senha, data.email, data.contato];
     await client.query(query, usuario);
   }
   
@@ -38,8 +38,8 @@ async function connect() {
   async function updateUsuario(data) {
     const client = await connect();
     const query =
-      "UPDATE usuario SET nome = $1, email = $2, senha = $3 WHERE id = $4";
-    const usuario = [data.nome, data.email, data.senha, data.id];
+      "UPDATE usuario SET nome = $1, email = $2, senha = $3, contato = $4 WHERE id = $5";
+    const usuario = [data.nome, data.email, data.senha, data.contato, data.id];
     await client.query(query, usuario);
   }
 
@@ -68,9 +68,9 @@ async function connect() {
 
   async function insertAnuncio(data) {
     const client = await connect();
-    const query = "INSERT INTO anuncio (nome, preco,) VALUES ($1,$2) ";
-    const usuario = [data.nome, data.preco];
-    await client.query(query, usuario);
+    const query = "INSERT INTO anuncio (nomeLivro, condicaouso, preco, descricao) VALUES ($1,$2,$3,$4) ";
+    const anuncio = [data.nome, data.condicaouso, data.preco, data.descricao];
+    await client.query(query, anuncio);
   }
   
   async function deleteAnuncio(id) {
@@ -82,8 +82,8 @@ async function connect() {
   async function updateAnuncio(data) {
     const client = await connect();
     const query =
-      "UPDATE anuncio SET nome = $1, preco = $2 WHERE id = $4";
-    const anuncio = [data.nome, data.preco, data.id];
+      "UPDATE anuncio SET nome = $1, condicaouso = $2, preco = $3, descricao = $4 WHERE id = $5";
+    const anuncio = [data.nome, data.condicaouso, data.preco, data.descricao, data.id];
     await client.query(query, anuncio);
   }
 
