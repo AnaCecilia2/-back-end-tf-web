@@ -1,4 +1,4 @@
-import { Router } from "express";
+/*import { Router } from "express";
 import verificarAutenticacao from "../middlewares/autenticacao.js";
 import {
   selectAnuncios,
@@ -67,3 +67,4 @@ router.get("/anuncio", verificarAutenticacao, async (req, res) => {
   });
   
   export default router;
+  */
