@@ -85,17 +85,15 @@ async function connect() {
       "UPDATE anuncio SET nome = $1, condicaouso = $2, preco = $3, descricao = $4 WHERE id = $5";
     const anuncio = [data.nome, data.condicaouso, data.preco, data.descricao, data.id];
     await client.query(query, anuncio);
-  }
-
+  }  
   
-  /*
-  async function selectTrocas() {
+  async function selectLivros() {
     const client = await connect();
     const res = await client.query("SELECT * FROM anuncio");
     return res.rows;
   }
 
-  async function selectTroca(id) {
+  async function selectLivro(id) {
     const client = await connect();
     const query = "SELECT * FROM anuncio WHERE id = $1";
     const anuncio = [id];
@@ -103,25 +101,25 @@ async function connect() {
     return res.rows;
 }
 
-  async function insertTroca(data) {
+  async function insertLivro(data) {
     const client = await connect();
-    const query = "INSERT INTO anuncio (nome, preco,) VALUES ($1,$2) ";
-    const usuario = [data.nome, data.preco];
-    await client.query(query, usuario);
+    const query = "INSERT INTO anuncio (nomeLivro, condicaouso, opc, descricao) VALUES ($1,$2,$3,$4) ";
+    const anuncio = [data.nome, data.condicaouso, data.opc, data.descricao];
+    await client.query(query, anuncio);
   }
   
-  async function deleteTroca(id) {
+  async function deleteLivro(id) {
     const client = await connect();
     const query = "DELETE FROM anuncio WHERE id = $1";
     await client.query(query, [id]);
   }
 
-  async function updateTroca(data) {
+  async function updateLivro(data) {
     const client = await connect();
     const query =
-      "UPDATE anuncio SET nome = $1, preco = $2 WHERE id = $4";
-    const usuario = [data.nome, data.email, data.senha, data.id];
-    await client.query(query, usuario);
+    "UPDATE anuncio SET nome = $1, condicaouso = $2, opc = $3, descricao = $4 WHERE id = $5";
+    const anuncio = [data.nome, data.condicaouso, data.opc, data.descricao, data.id];
+    await client.query(query, anuncio);
   }
-  */
-  export { selectUsuarios,  selectUsuario, insertUsuario, deleteUsuario, updateUsuario, autenticarUsuario, selectAnuncios,  selectAnuncio, insertAnuncio, deleteAnuncio, updateAnuncio/*, selectTrocas,  selectTroca, insertTroca, deleteTroca, updateTroca*/};
+  
+  export { selectUsuarios,  selectUsuario, insertUsuario, deleteUsuario, updateUsuario, autenticarUsuario, selectAnuncios,  selectAnuncio, insertAnuncio, deleteAnuncio, updateAnuncio, selectLivros,  selectLivro, insertLivro, deleteLivro, updateLivro};
