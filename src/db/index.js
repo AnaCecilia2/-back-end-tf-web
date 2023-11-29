@@ -117,8 +117,8 @@ async function connect() {
   async function updateLivro(data) {
     const client = await connect();
     const query =
-    "UPDATE livro SET nome = $1, condicaouso = $2, opc = $3, descricao = $4 WHERE idlivro = $5";
-    const livro = [data.nome, data.condicaouso, data.opc, data.descricao, data.idlivro];
+    "UPDATE livro SET nomelivro = $1, condicaouso = $2, opc = $3, descricao = $4 WHERE idlivro = $5";
+    const livro = [data.nomelivro, data.condicaouso, data.opc, data.descricao, data.idlivro];
     await client.query(query, livro);
   }
   
