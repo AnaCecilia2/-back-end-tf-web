@@ -1,7 +1,7 @@
 # -back-end-tf-web
 ## Back-End do trabalho final da disciplina de WEB
 
-![] (/src/db/modelo.png)
+![](/src/db/modelo.png)
 
 ### O nosso site tem como objetivo principal a venda ou troca de livros.
 
@@ -49,6 +49,9 @@
 - Tipo da requisição: DELETE
 
 #### Para atualizar um usuário
+- Descrição: : atualiza os dados de um  usuário no banco de dados
+- Endpoint: back-end-tf-web2-git-main-anacecilia2.vercel.app/usuario/id
+- Tipo da requisição: DELETE
 
 #### Listar os anúncios
 - Descrição: Lista todos os anúncios cadastrados no sistema
