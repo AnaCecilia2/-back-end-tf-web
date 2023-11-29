@@ -45,7 +45,7 @@ router.get("/livro", verificarAutenticacao, async (req, res) => {
   router.put("/livro", verificarAutenticacao,  async (req, res) => {
     console.log("Rota PUT /livro solicitada");
     try {
-      const livro = await selectLivro(req.body.id);
+      const livro = await selectLivro(req.body.idlivro);
       if (livro.length > 0) {
         await updateLivro(req.body);
         res.status(200).json({ message: "livro atualizado com sucesso!" });

@@ -46,7 +46,7 @@ router.get("/anuncio", async (req, res) => {
   router.put("/anuncio", verificarAutenticacao,  async (req, res) => {
     console.log("Rota PUT /anuncio solicitada");
     try {
-      const anuncio = await selectAnuncio(req.body.id);
+      const anuncio = await selectAnuncio(req.body.idanuncio);
       if (anuncio.length > 0) {
         await updateAnuncio(req.body);
         res.status(200).json({ message: "anuncio atualizado com sucesso!" });
