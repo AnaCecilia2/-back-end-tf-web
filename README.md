@@ -3,11 +3,12 @@
 #### Ana Cecília, Any, Maria Vitória, Pietra, Raica e Raissa; 3° info A
 
 ![](/src/db/modelo.png)
+##### obs: A entidade administrador está presente no modelo, porém as alunas ainda estão considerando se ele será utilizado ou não.
 
 ### O nosso site tem como objetivo principal a venda ou troca de livros.
 
 #### Url do site: https://back-end-tf-web2.vercel.app 
-##### obs: A entidade administrador está presente no modelo, porém as alunas ainda estão considerando se ele será utilizado ou não.
+
 
 #### Logar no sistema
 - Descrição: Faz login no sistema
