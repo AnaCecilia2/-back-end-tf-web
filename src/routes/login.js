@@ -10,7 +10,7 @@ router.post("/login", async (req, res) => {
     const usuario = await autenticarUsuario(req.body.email, req.body.senha);
     if (usuario !== undefined) {
       const token = jwt.sign({ user: usuario.id }, process.env.SECRET, {
-        expiresIn: 9000,
+        expiresIn: 15000,
       });
       res.status(202).json({ token: token });
     } else res.status(404).json({ message: "Usuário/Senha incorreta!" });
