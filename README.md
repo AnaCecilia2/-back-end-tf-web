@@ -68,7 +68,7 @@
   "idusuario": 1
 }
 ```
--obs: Insira o dado de acordo como você quer que ele fique atualizado, exceto o id
+- obs: Insira o dado de acordo como você quer que ele fique atualizado, exceto o id
 
 #### Listar os anúncios
 - Descrição: Lista todos os anúncios cadastrados no sistema
@@ -113,7 +113,7 @@
   "idanuncio": 1
 }
 ```
--obs: Insira o dado de acordo como você quer que ele fique atualizado, exceto o id
+- obs: Insira o dado de acordo como você quer que ele fique atualizado, exceto o id
 
 #### Listar os livros
 - Descrição: Lista todos os livros cadastrados no sistema
@@ -158,4 +158,4 @@
   "idlivro": 1
 }
 ```
--obs: Insira o dado de acordo como você quer que ele fique atualizado, exceto o id
+- obs: Insira o dado de acordo como você quer que ele fique atualizado, exceto o id
