@@ -1,6 +1,6 @@
 # back-end-tf-web
 ## Back-End do trabalho final da disciplina de WEB
-####Integrantes: Ana Cecília, Any, Maria Vitória, Pietra, Raica e Raissa; 3° info A
+#### Integrantes: Ana Cecília, Any, Maria Vitória, Pietra, Raica e Raissa; 3° info A
 
 ![](/src/db/modelo.png)
 ##### obs: A entidade administrador está presente no modelo, porém as alunas ainda estão considerando se ele será utilizado ou não.
