@@ -17,10 +17,13 @@
 - Body: 
 ```
 {
-  "senha": "***",
-  "email": "email-usuario@email.com"
+  "senha": "111",
+  "email": "f@email.com"
 }
 ```
+- Após enviada a requisição, será enviado um token de acesso que deve ser colado no headers do thunder client.
+- headers: x-acess-token
+- conteúdo: token enviado
 
 #### Listar os usuários
 - Descrição: Lista todos os usuários cadastrados no sistema
