@@ -1,6 +1,6 @@
-# -back-end-tf-web
+# back-end-tf-web
 ## Back-End do trabalho final da disciplina de WEB
-#### Ana Cecília, Any, Maria Vitória, Pietra, Raica e Raissa; 3° info A
+####Integrantes: Ana Cecília, Any, Maria Vitória, Pietra, Raica e Raissa; 3° info A
 
 ![](/src/db/modelo.png)
 ##### obs: A entidade administrador está presente no modelo, porém as alunas ainda estão considerando se ele será utilizado ou não.
@@ -21,9 +21,9 @@
   "email": "f@email.com"
 }
 ```
-- Após enviada a requisição, será enviado um token de acesso que deve ser colado no headers do thunder client.
-- headers: x-acess-token
-- conteúdo: token enviado
+- Após enviada a requisição, será enviado um token de acesso que deve ser colado no headers do thunder client. Este token deve ser colado quando se quiser fazer outras rotas.
+- headers: x-access-token
+- URL: token enviado
 
 #### Listar os usuários
 - Descrição: Lista todos os usuários cadastrados no sistema
@@ -66,10 +66,9 @@
   "email": "email-usuario@email.com",
   "contato": "9999999",
   "idusuario": 1
-
-  //obs: Insira o dado de acordo como você quer que ele fique atualizado, exceto o id
 }
 ```
+-obs: Insira o dado de acordo como você quer que ele fique atualizado, exceto o id
 
 #### Listar os anúncios
 - Descrição: Lista todos os anúncios cadastrados no sistema
@@ -112,10 +111,9 @@
   "preco": 88,
   "descricao": "breve descrição sobre o livro",
   "idanuncio": 1
-
-  //obs: Insira o dado de acordo como você quer que ele fique atualizado, exceto o id
 }
 ```
+-obs: Insira o dado de acordo como você quer que ele fique atualizado, exceto o id
 
 #### Listar os livros
 - Descrição: Lista todos os livros cadastrados no sistema
@@ -158,7 +156,6 @@
   "opc": "opção que você aceita em troca deste livro",
   "descricao": "breve descrição sobre o livro",
   "idlivro": 1
-
-  //obs: Insira o dado de acordo como você quer que ele fique atualizado, exceto o id
 }
 ```
+-obs: Insira o dado de acordo como você quer que ele fique atualizado, exceto o id
