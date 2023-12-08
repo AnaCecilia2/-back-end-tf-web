@@ -2,10 +2,18 @@
 ## Back-End do trabalho final da disciplina de WEB
 #### Integrantes: Ana Cecília, Any, Maria Vitória, Pietra, Raica e Raissa; 3° info A
 
-![](/src/db/modelo.png)
-##### obs: A entidade administrador está presente no modelo, porém as alunas ainda estão considerando se ele será utilizado ou não.
-
 ### O nosso site tem como objetivo principal a venda ou troca de livros.
+
+##### Banco de dados
+
+![](/src/db/Coonceitualmodelo.png)
+![](/src/db/LogicoModelo.png)
+![](/src/db/DDL.sql)
+
+#### Ferramentas usadas:
+- BRModelo: pra fazer os modelos conceituais e lógicos
+- Postgrees (NeonTech): para o código sql
+
 
 #### Url do site: https://back-end-tf-web2.vercel.app 
 
