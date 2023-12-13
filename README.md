@@ -8,7 +8,7 @@
 
 ![](/src/db/Coonceitualmodelo.png)
 ![](/src/db/LogicoModelo.png)
-[](/src/db/DDL.sql)
+[Arquivo DDL] (/src/db/DDL.sql)
 
 #### Ferramentas usadas:
 - BRModelo: pra fazer os modelos conceituais e lógicos
