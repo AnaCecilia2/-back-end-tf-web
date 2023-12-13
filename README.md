@@ -6,9 +6,10 @@
 
 #### Banco de dados
 
+[Arquivo DDL](/src/db/DDL.sql)
 ![](/src/db/Coonceitualmodelo.png)
 ![](/src/db/LogicoModelo.png)
-[Arquivo DDL](/src/db/DDL.sql)
+
 
 #### Ferramentas usadas:
 - BRModelo: pra fazer os modelos conceituais e lógicos
