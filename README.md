@@ -4,11 +4,11 @@
 
 ### O nosso site tem como objetivo principal a venda ou troca de livros.
 
-##### Banco de dados
+#### Banco de dados
 
 ![](/src/db/Coonceitualmodelo.png)
 ![](/src/db/LogicoModelo.png)
-![](/src/db/DDL.sql)
+[](/src/db/DDL.sql)
 
 #### Ferramentas usadas:
 - BRModelo: pra fazer os modelos conceituais e lógicos
