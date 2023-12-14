@@ -11,7 +11,7 @@ import {
 
 const router = Router();
 
-router.get("/usuario", verificarAutenticacao, async (req, res) => {
+router.get("/usuario", async (req, res) => {
   console.log("Rota GET /usuario solicitada");
   try {
     const usuarios = await selectUsuarios();
@@ -20,12 +20,13 @@ router.get("/usuario", verificarAutenticacao, async (req, res) => {
     res.status(error.status || 500).json({ message: error.message || "Erro!" });
   }
 });
-
-router.get("/usuario/:id", verificarAutenticacao,  async (req, res) => {
-  console.log(`Rota GET /usuario/${req.params.id} solicitada`);
+//pega um usuário pelo nome
+router.get("/usuario/:nome",  async (req, res) => {
+  console.log(`Rota GET /usuario/${req.params.nome} solicitada`);
   try {
-    const usuario = await selectUsuario(req.params.id);
-    if (usuario.length > 0) res.json(usuario);
+    const usuario = await selectUsuario(req.params.nome);
+    if (usuario.length > 0) 
+      res.json(usuario);
     else res.status(404).json({ message: "Usuário não encontrado!" });
   } catch (error) {
     res.status(error.status || 500).json({ message: error.message || "Erro!" });
@@ -65,7 +66,5 @@ router.delete("/usuario/:id", verificarAutenticacao,  async (req, res) => {
     res.status(error.status || 500).json({ message: error.message || "Erro!" });
   }
 });
-
-
 
 export default router;

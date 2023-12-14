@@ -3,7 +3,7 @@ import express from "express";
 import roteadorUsuario from "./routes/usuario.js";
 import roteadorLogin from "./routes/login.js";
 import roteadorAnuncio from "./routes/anuncio.js";
-import roteadorLivro from "./routes/livro.js";
+
 import {
   selectUsuario,
   selectUsuarios,
@@ -23,7 +23,6 @@ const port = 3000;
 app.use(express.json());
 app.use(roteadorUsuario);
 app.use(roteadorAnuncio);
-app.use(roteadorLivro);
 app.use(roteadorLogin);
 app.use(express.urlencoded({ extended: true }));
 

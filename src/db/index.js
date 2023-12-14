@@ -14,10 +14,10 @@ async function connect() {
     return res.rows;
   }
 
-  async function selectUsuario(id) {
+  async function selectUsuario(nome) {
     const client = await connect();
-    const query = "SELECT * FROM usuario WHERE idusuario = $1";
-    const usuario = [id];
+    const query = "SELECT * FROM usuario WHERE nomeUsuario LIKE '$1%'";
+    const usuario = [nome];
     const res = await client.query(query, usuario);
     return res.rows;
 }
@@ -86,40 +86,5 @@ async function connect() {
     const anuncio = [data.nomelivro, data.condicaouso, data.preco, data.descricao, data.idanuncio];
     await client.query(query, anuncio);
   }  
-  
-  async function selectLivros() {
-    const client = await connect();
-    const res = await client.query("SELECT * FROM livro ");
-    return res.rows;
-  }
-
-  async function selectLivro(id) {
-    const client = await connect();
-    const query = "SELECT * FROM livro  WHERE idlivro = $1";
-    const livro = [id];
-    const res = await client.query(query, livro);
-    return res.rows;
-}
-
-  async function insertLivro(data) {
-    const client = await connect();
-    const query = "INSERT INTO livro  (nomelivro, condicaouso, opc, descricao) VALUES ($1,$2,$3,$4) ";
-    const livro = [data.nomelivro, data.condicaouso, data.opc, data.descricao];
-    await client.query(query, livro);
-  }
-  
-  async function deleteLivro(id) {
-    const client = await connect();
-    const query = "DELETE FROM livro  WHERE idlivro = $1";
-    await client.query(query, [id]);
-  }
-
-  async function updateLivro(data) {
-    const client = await connect();
-    const query =
-    "UPDATE livro SET nomelivro = $1, condicaouso = $2, opc = $3, descricao = $4 WHERE idlivro = $5";
-    const livro = [data.nomelivro, data.condicaouso, data.opc, data.descricao, data.idlivro];
-    await client.query(query, livro);
-  }
-  
-  export { selectUsuarios,  selectUsuario, insertUsuario, deleteUsuario, updateUsuario, autenticarUsuario, selectAnuncios,  selectAnuncio, insertAnuncio, deleteAnuncio, updateAnuncio, selectLivros,  selectLivro, insertLivro, deleteLivro, updateLivro};
+    
+  export { selectUsuarios,  selectUsuario, insertUsuario, deleteUsuario, updateUsuario, autenticarUsuario, selectAnuncios,  selectAnuncio, insertAnuncio, deleteAnuncio, updateAnuncio};

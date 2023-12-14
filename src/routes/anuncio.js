@@ -22,7 +22,7 @@ router.get("/anuncio", async (req, res) => {
     }
   });
   
-  router.get("/anuncio/:id", verificarAutenticacao,  async (req, res) => {
+  router.get("/anuncio/:id",  async (req, res) => {
     console.log(`Rota GET /anuncio/${req.params.id} solicitada`);
     try {
       const anuncio = await selectAnuncio(req.params.id);
