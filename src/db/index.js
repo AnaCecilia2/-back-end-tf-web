@@ -16,7 +16,7 @@ async function connect() {
 
   async function selectUsuario(nome) {
     const client = await connect();
-    const query = "SELECT * FROM usuario WHERE nomeUsuario LIKE '$1%'";
+    const query = "SELECT * FROM usuario WHERE nome LIKE '$1%'";
     const usuario = [nome];
     const res = await client.query(query, usuario);
     return res.rows;
