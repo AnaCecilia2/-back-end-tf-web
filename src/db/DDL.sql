@@ -16,11 +16,3 @@ CREATE TABLE anuncio (
   PRIMARY KEY (idAnuncio),
   FOREIGN KEY (fk_usuario_id) REFERENCES usuario (idUsuario) ON DELETE CASCADE ON UPDATE CASCADE
 ); 
-
-INSERT INTO usuario (nome, senha, email, telefone) VALUES 
-('Fulano', '111','f@email.com', 992), 
-('Siclano', '222','s@email.com', 991), 
-('Beltrano', '333','b@email.com', 993);
-
-INSERT INTO anuncio (nomeLivro, preco, descricao) VALUES 
-('De sangue e cinzas', 39, 'livro novo, se possivel troco ele por dom casmurro');

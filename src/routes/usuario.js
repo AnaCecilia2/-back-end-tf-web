@@ -11,7 +11,7 @@ import {
 
 const router = Router();
 
-router.get("/usuario", async (req, res) => {
+router.get("/usuarios", async (req, res) => {
   console.log("Rota GET /usuario solicitada");
   try {
     const usuarios = await selectUsuarios();
@@ -20,6 +20,7 @@ router.get("/usuario", async (req, res) => {
     res.status(error.status || 500).json({ message: error.message || "Erro!" });
   }
 });
+
 //pega um usuário pelo nome
 router.get("/usuario/:nome",  async (req, res) => {
   console.log(`Rota GET /usuario/${req.params.nome} solicitada`);
@@ -57,7 +58,7 @@ router.put("/usuario", verificarAutenticacao,  async (req, res) => {
   }
 });
 
-router.delete("/usuario/:id", verificarAutenticacao,  async (req, res) => {
+router.delete("/usuario/:id",   async (req, res) => {
   console.log("Rota DELETE /usuario solicitada");
   try {
     await deleteUsuario(req.params.id);

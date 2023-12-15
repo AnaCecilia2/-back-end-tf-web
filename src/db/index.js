@@ -8,16 +8,17 @@ async function connect() {
     return pool.connect();
   }
 
-  async function selectUsuarios() {
+  async function selectUsuarios() {    
     const client = await connect();
+    console.log('oi');
     const res = await client.query("SELECT * FROM usuario");
     return res.rows;
   }
 
   async function selectUsuario(nome) {
     const client = await connect();
-    const query = "SELECT * FROM usuario WHERE nome LIKE '$1%'";
-    const usuario = [nome];
+    const query = "SELECT * FROM usuario WHERE nome ILIKE $1";
+    const usuario = [`${nome}%`];
     const res = await client.query(query, usuario);
     return res.rows;
 }
