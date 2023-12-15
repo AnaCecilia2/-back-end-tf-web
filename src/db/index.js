@@ -11,13 +11,13 @@ async function connect() {
   async function selectUsuarios() {    
     const client = await connect();
     console.log('oi');
-    const res = await client.query("SELECT * FROM usuario");
+    const res = await client.query("SELECT nome, email, contato * FROM usuario");
     return res.rows;
   }
 
   async function selectUsuario(nome) {
     const client = await connect();
-    const query = "SELECT * FROM usuario WHERE nome ILIKE $1";
+    const query = "SELECT nome, email, contato * FROM usuario WHERE nome ILIKE $1";
     const usuario = [`${nome}%`];
     const res = await client.query(query, usuario);
     return res.rows;
