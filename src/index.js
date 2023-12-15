@@ -4,6 +4,7 @@ import roteadorUsuario from "./routes/usuario.js";
 import roteadorLogin from "./routes/login.js";
 import roteadorAnuncio from "./routes/anuncio.js";
 
+dotenv.config();
 import {
   selectUsuario,
   selectUsuarios,

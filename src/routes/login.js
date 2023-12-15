@@ -9,13 +9,13 @@ router.post("/login", async (req, res) => {
   try {
     const usuario = await autenticarUsuario(req.body.email, req.body.senha);
     if (usuario !== undefined) {
-      const token = jwt.sign({ user: usuario.id }, process.env.SECRET, {
+      const token = jwt.sign({ user: usuario.idusuario }, process.env.SECRET, {
         expiresIn: 15000,
       });
       res.status(202).json({ token: token });
     } else res.status(404).json({ message: "Usuário/Senha incorreta!" });
   } catch (error) {
-    res.status(error.status || 500).json({ message: error.message || "Erro!" });
+    res.status(error.status || 500).json({ message: error.message || "Err0!" });
   }
 });
 

@@ -9,8 +9,8 @@ async function connect() {
   }
 
   async function selectUsuarios() {    
+    
     const client = await connect();
-    console.log('oi');
     const res = await client.query("SELECT nome, email, contato FROM usuario");
     return res.rows;
   }
