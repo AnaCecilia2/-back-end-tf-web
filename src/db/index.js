@@ -55,7 +55,7 @@ async function connect() {
 
   async function selectAnuncios() {
     const client = await connect();
-    const res = await client.query("SELECT * FROM anuncio");
+    const res = await client.query("SELECT nomelivro, condicaouso, preco, descricao, datapub FROM anuncio");
     return res.rows;
   }
 
