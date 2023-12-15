@@ -5,7 +5,7 @@ function verificarAutenticacao(req, res, next) {
   jwt.verify(token, process.env.SECRET, (err, decoded) => {
     if (err)
       return res.status(401).json({ message: "Usuário não Autenticado" }).end();
-    req.userId = decoded.user;
+    res.userId = decoded.user;
     next();
   });
 }
