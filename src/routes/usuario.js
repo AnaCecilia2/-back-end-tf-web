@@ -60,17 +60,20 @@ router.put("/usuario", verificarAutenticacao,  async (req, res) => {
 
 router.delete("/usuario/:id", verificarAutenticacao, async (req, res) => {
   console.log("Rota DELETE /usuario solicitada");
-  // req.userId
-  try {
-    if (req.userId == req.params.id){
-      await deleteUsuario(req.params.id);
-    res.status(200).json({ message: "Usuário excluido com sucesso!" });
-    } else {
-      res.status(401).json({ message: "Não foi possível excluir este usuário" });
-    }
-  } catch (error) {
-    res.status(error.status || 500).json({ message: error.message || "Erro!" });
-  }
+ 
+  console.log(req.userId);
+  // try {
+  //   if (req.userId == req.params.id){
+  //     await deleteUsuario(req.params.id);
+  //   res.status(200).json({ message: "Usuário excluido com sucesso!" });
+  //   } else {
+  //     res.status(401).json({ message: "Não foi possível excluir este usuário" });
+  //   }
+  // } catch (error) {
+  //   res.status(error.status || 500).json({ message: error.message || "Erro!" });
+  // }
+  
+    res.status(200).json({ message: "oi" });
 });
 
 export default router;
