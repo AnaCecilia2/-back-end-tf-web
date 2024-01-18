@@ -55,16 +55,24 @@ async function connect() {
 
   async function selectAnuncios() {
     const client = await connect();
-    const res = await client.query("SELECT nomelivro, preco, descricao, datapub FROM anuncio");
+    const res = await client.query("SELECT * FROM anuncio");
     return res.rows;
   }
 
   async function selectAnuncio(nomeLivro) {
     const client = await connect();
-    const query = "SELECT nomeLivro, preco, descricao, dataPub FROM anuncio WHERE nomeLivro ILIKE $1";
+    const query = "SELECT * WHERE nomeLivro ILIKE $1";
     const anuncio = [`${nomeLivro}%`];
     const res = await client.query(query, anuncio);
     return res.rows;
+}
+
+async function selectAnuncioId(id) {
+  const client = await connect();
+  const query = "SELECT * FROM anuncio, usuario WHERE idusario == fk_usuario_id AND idanuncio ==  $1";
+  const anuncio = id;
+  const res = await client.query(query, anuncio);
+  return res.rows;
 }
 
 /* 
