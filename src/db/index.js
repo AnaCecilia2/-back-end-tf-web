@@ -55,18 +55,25 @@ async function connect() {
 
   async function selectAnuncios() {
     const client = await connect();
-    const res = await client.query("SELECT nomelivro, condicaouso, preco, descricao, datapub FROM anuncio");
+    const res = await client.query("SELECT nomelivro, preco, descricao, datapub FROM anuncio");
     return res.rows;
   }
 
-  async function selectAnuncio(id) {
+  async function selectAnuncio(nomeLivro) {
     const client = await connect();
-    const query = "SELECT * FROM anuncio WHERE idanuncio = $1";
-    const anuncio = [id];
+    const query = "SELECT nomeLivro, preco, descricao, dataPub FROM anuncio WHERE nomeLivro ILIKE $1";
+    const anuncio = [`${nomeLivro}%`];
     const res = await client.query(query, anuncio);
     return res.rows;
 }
 
+/* 
+ const client = await connect();
+    const query = "SELECT nome, email, contato FROM usuario WHERE nome ILIKE $1";
+    const usuario = [`${nome}%`];
+    const res = await client.query(query, usuario);
+    return res.rows;
+*/
   async function insertAnuncio(data) {
     const client = await connect();
     const query = "INSERT INTO anuncio (nomelivro, condicaouso, preco, descricao) VALUES ($1,$2,$3,$4) ";
