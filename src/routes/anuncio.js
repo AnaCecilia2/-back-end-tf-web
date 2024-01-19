@@ -6,6 +6,7 @@ import {
   insertAnuncio,
   deleteAnuncio,
   updateAnuncio,
+  selectAnuncioId
 } from "../db/index.js";
 
 const router = Router();
@@ -74,12 +75,36 @@ router.get("/anuncio", async (req, res) => {
   
   router.delete("/anuncio/:id", verificarAutenticacao,  async (req, res) => {
     console.log("Rota DELETE /anuncio solicitada");
-    try {
-      await deleteAnuncio(req.params.id);
-      res.status(200).json({ message: "anuncio excluido com sucesso!" });
-    } catch (error) {
-      res.status(error.status || 500).json({ message: error.message || "Erro!" });
+    console.log(req.userId)
+  try {
+    if (req.userId != req.params.id){
+        const error = new Error ("Você não pode excluir este usuário");
+        throw error;
     }
-  });
+    await deleteUsuario(req.params.id);
+    res.status(200).json({ message: "Usuário excluido com sucesso!" });
+  } catch (error) {
+    res.status(error.status || 500).json({ message: error.message || "Erro!" });
+  }
+});
+
   
+  /*
+  router.delete("/usuario/:id", verificarAutenticacao, async (req, res) => {
+  console.log("Rota DELETE /usuario solicitada");
+  // req.userId
+  console.log(req.userId)
+  try {
+    if (req.userId != req.params.id){
+        const error = new Error ("Você não pode excluir este usuário");
+        throw error;
+    }
+    await deleteUsuario(req.params.id);
+    res.status(200).json({ message: "Usuário excluido com sucesso!" });
+  } catch (error) {
+    res.status(error.status || 500).json({ message: error.message || "Erro!" });
+  }
+});
+
+  */
   export default router;
