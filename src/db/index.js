@@ -85,7 +85,7 @@ async function selectAnuncioId(id) {
   async function insertAnuncio(data) {
     const client = await connect();
     const query = "INSERT INTO anuncio (nomelivro, preco, descricao, fk_usuario_id) VALUES ($1,$2,$3,$4) ";
-    const anuncio = [data.nomelivro, data.condicaouso, data.preco, data.descricao, data.idautor];
+    const anuncio = [data.nomelivro, data.preco, data.descricao, data.idautor];
     await client.query(query, anuncio);
   }
   
