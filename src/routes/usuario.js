@@ -7,6 +7,7 @@ import {
   insertUsuario,
   deleteUsuario,
   updateUsuario,
+  selectUsuarioId
 } from "../db/index.js";
 
 const router = Router();
@@ -33,6 +34,20 @@ router.get("/usuario/:nome",  async (req, res) => {
     res.status(error.status || 500).json({ message: error.message || "Erro!" });
   }
 });
+
+//pega um usuário pelo id
+router.get("/usuario/:id",  async (req, res) => {
+  console.log(`Rota GET /usuario/${req.params.id} solicitada`);
+  try {
+    const usuario = await selectUsuarioId(req.params.id);
+    if (usuario.length > 0) 
+      res.json(usuario);
+    else res.status(404).json({ message: "Usuário não encontrado!" });
+  } catch (error) {
+    res.status(error.status || 500).json({ message: error.message || "Erro!" });
+  }
+});
+
 
 router.post("/usuario", verificarAutenticacao, async (req, res) => {
   console.log("Rota POST /usuario solicitada");

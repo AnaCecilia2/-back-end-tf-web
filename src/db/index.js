@@ -44,6 +44,14 @@ async function connect() {
     await client.query(query, usuario);
   }
 
+  async function selectUsuarioId(id) {
+    const client = await connect();
+    const query = "SELECT * FROM usuario, usuario WHERE idusario ==  $1";
+    const usuario = id;
+    const res = await client.query(query, usuario);
+    return res.rows;
+  }
+
 
   async function autenticarUsuario(email, senha) {
     const client = await connect();
@@ -75,13 +83,6 @@ async function selectAnuncioId(id) {
   return res.rows;
 }
 
-/* 
- const client = await connect();
-    const query = "SELECT nome, email, contato FROM usuario WHERE nome ILIKE $1";
-    const usuario = [`${nome}%`];
-    const res = await client.query(query, usuario);
-    return res.rows;
-*/
   async function insertAnuncio(data) {
     const client = await connect();
     const query = "INSERT INTO anuncio (nomelivro, condicaouso, preco, descricao, fk_usuario_id) VALUES ($1,$2,$3,$4,$5) ";
@@ -103,4 +104,4 @@ async function selectAnuncioId(id) {
     await client.query(query, anuncio);
   }  
     
-  export { selectUsuarios,  selectUsuario, insertUsuario, deleteUsuario, updateUsuario, autenticarUsuario, selectAnuncios,  selectAnuncio, insertAnuncio, deleteAnuncio, updateAnuncio, selectAnuncioId};
+  export { selectUsuarios,  selectUsuario, insertUsuario, deleteUsuario, updateUsuario, autenticarUsuario, selectAnuncios,  selectAnuncio, insertAnuncio, deleteAnuncio, updateAnuncio, selectAnuncioId, selectUsuarioId};
