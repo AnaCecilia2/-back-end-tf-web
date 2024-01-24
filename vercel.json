@@ -8,6 +8,15 @@
   ],
   "routes": [
     {
+      "src": "/anuncio",
+      "methods": ["GET"],
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET"
+      },
+      "dest": "src/index.js"
+    },
+    {
       "src": "(.*)",
       "dest": "src/index.js"
     }
