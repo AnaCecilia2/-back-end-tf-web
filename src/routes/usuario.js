@@ -49,7 +49,7 @@ router.get("/usuario/:id",  async (req, res) => {
 });
 
 
-router.post("/usuario", verificarAutenticacao, async (req, res) => {
+router.post("/usuario", async (req, res) => {
   console.log("Rota POST /usuario solicitada");
   try {
     await insertUsuario(req.body);
