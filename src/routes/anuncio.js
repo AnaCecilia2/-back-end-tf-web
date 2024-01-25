@@ -74,10 +74,10 @@ router.get("/usuario/:id",  async (req, res) => {
   
   router.delete("/anuncio/:id", verificarAutenticacao,  async (req, res) => {
     console.log("Rota DELETE /anuncio solicitada");
-    console.log(req.anuncioId);
+    console.log(req.body.anuncioId);
     console.log(req.params.id);
   try {
-    if (req.anuncioId != req.params.id){
+    if (req.body.anuncioId != req.params.id){
         const error = new Error ("Você não pode excluir este anuncio");
         throw error;
     }
