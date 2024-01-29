@@ -93,7 +93,7 @@ router.delete("/usuario/:id", verificarAutenticacao, async (req, res) => {
   // req.userId
   console.log(req.userId)
   try {
-    if (req.userId != req.params.id){
+    if (req.body.userId != req.params.id){
         const error = new Error ("Você não pode excluir este usuário");
         throw error;
     }
