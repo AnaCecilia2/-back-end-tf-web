@@ -7,7 +7,8 @@ import {
   insertUsuario,
   deleteUsuario,
   updateUsuario,
-  selectUsuarioId
+  selectUsuarioId,
+  selectUsuarioByEmail
 } from "../db/index.js";
 
 const router = Router();
@@ -30,6 +31,20 @@ router.get("/usuario/:nome",  async (req, res) => {
     if (usuario.length > 0) 
       res.json(usuario);
     else res.status(404).json({ message: "Usuário não encontrado!" });
+  } catch (error) {
+    res.status(error.status || 500).json({ message: error.message || "Erro!" });
+  }
+});
+
+router.get("/usuario/email/:email", async (req, res) => {
+  console.log(`Rota GET /usuario/email/${req.params.email} solicitada`);
+  try {
+    const usuario = await selectUsuarioByEmail(req.params.email);
+    if (usuario.length > 0) {
+      res.json(usuario);
+    } else {
+      res.status(404).json({ message: "Usuário não encontrado!" });
+    }
   } catch (error) {
     res.status(error.status || 500).json({ message: error.message || "Erro!" });
   }
