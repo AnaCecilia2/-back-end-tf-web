@@ -9,9 +9,16 @@ async function connect() {
   }
 
   async function selectUsuarios() {    
-    
     const client = await connect();
     const res = await client.query("SELECT nome, email, contato FROM usuario");
+    return res.rows;
+  }
+
+  async function selectUsuarioByEmail(email) {
+    const client = await connect();
+    const query = "SELECT * FROM usuario WHERE email = $1";
+    const usuario = [email];
+    const res = await client.query(query, usuario);
     return res.rows;
   }
 
@@ -21,7 +28,7 @@ async function connect() {
     const usuario = [`${nome}%`];
     const res = await client.query(query, usuario);
     return res.rows;
-}
+  }
 
   async function insertUsuario(data) {
     const client = await connect();
