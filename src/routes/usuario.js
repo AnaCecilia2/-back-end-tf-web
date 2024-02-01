@@ -24,7 +24,7 @@ router.get("/usuarios", async (req, res) => {
 });
 
 //pega um usuário pelo nome
-router.get("/usuario/:nome",  async (req, res) => {
+router.get("/usuario/nome/:nome",  async (req, res) => {
   console.log(`Rota GET /usuario/${req.params.nome} solicitada`);
   try {
     const usuario = await selectUsuario(req.params.nome);
