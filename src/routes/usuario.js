@@ -54,8 +54,8 @@ router.get("/usuario/email/:email", async (req, res) => {
 router.get("/usuario/:id",  async (req, res) => {
   console.log(`Rota GET /usuario/${req.params.id} solicitada`);
   try {
-    const usuario = await selectUsuarioId(req.params.id);
     console.log(usuario);
+    const usuario = await selectUsuarioId(req.params.id);
     if (usuario != null)
       res.json(usuario);
     else res.status(404).json({ message: "Usuário não encontrado!" });
