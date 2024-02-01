@@ -59,7 +59,7 @@ router.get("/usuario/:id",  async (req, res) => {
     if (usuario.length > 0) {
       res.json(usuario);
     } else {
-      res.status(404).json({ message: usuario});
+      res.status(404).json({ message: usuario.length});
     }
   } catch (error) {
     res.status(error.status || 500).json({ message: error.message || "Erro!" });
