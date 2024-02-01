@@ -53,7 +53,7 @@ async function connect() {
 
   async function selectUsuarioId(id) {
     const client = await connect();
-    const query = "SELECT * FROM usuario, usuario WHERE idusuario ==  $1";
+    const query = "SELECT * FROM usuario WHERE idusuario ==  $1";
     const usuario = id;
     const res = await client.query(query, usuario);
     return res.rows;
