@@ -34,19 +34,6 @@ router.get("/anuncio", async (req, res) => {
       res.status(error.status || 500).json({ message: error.message || "Erro!" });
     }
   });
-
-//pega um anúncio pelo id
-router.get("/usuario/:id",  async (req, res) => {
-  console.log(`Rota GET /usuario/${req.params.id} solicitada`);
-  try {
-    const usuario = await selectAnuncioId(req.params.id);
-    if (usuario.length > 0) 
-      res.json(usuario);
-    else res.status(404).json({ message: "Usuário não encontrado!" });
-  } catch (error) {
-    res.status(error.status || 500).json({ message: error.message || "Erro!" });
-  }
-});
   
   router.post("/anuncio", verificarAutenticacao, async (req, res) => {
     console.log("Rota POST /anuncio solicitada");
