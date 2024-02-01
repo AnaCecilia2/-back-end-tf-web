@@ -57,9 +57,11 @@ router.get("/usuario/:id",  async (req, res) => {
     console.log(usuario);
     const usuario = await selectUsuarioId(req.params.id);
     console.log(usuario);
-    if (usuario.length > 0)
+    if (usuario.length > 0) {
       res.json(usuario);
-    else res.status(404).json({ message: "Usuário não encontrado!" });
+    } else {
+      res.status(404).json({ message: usuario});
+    }
   } catch (error) {
     res.status(error.status || 500).json({ message: error.message || "Erro!" });
   }
