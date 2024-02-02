@@ -48,10 +48,8 @@ async function connect() {
   const query =
     "UPDATE usuario SET nome = $1, email = $2, senha = $3, contato = $4 WHERE idusuario = $5";
   const usuario = [data.nome, data.email, data.senha, data.contato, data.idusuario];
-
   try {
     const result = await client.query(query, usuario);
-    console.log(result.rows); // Exibe o resultado da consulta para debug
   } catch (error) {
     console.error("Erro na atualização do usuário:", error.message);
   } finally {
