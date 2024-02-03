@@ -22,10 +22,10 @@ async function connect() {
     return res.rows;
   }
 
-  async function selectUsuario(nome) {
+  async function selectUsuario(id) {
     const client = await connect();
-    const query = "SELECT idusuario, nome, email, contato FROM usuario WHERE nome ILIKE $1";
-    const usuario = [`${nome}%`];
+    const query = "SELECT idusuario, nome, email, contato FROM usuario WHERE idusuario ILIKE $1";
+    const usuario = [`${id}%`];
     const res = await client.query(query, usuario);
     return res.rows;
   }
