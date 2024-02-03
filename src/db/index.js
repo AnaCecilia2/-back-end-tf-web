@@ -57,7 +57,6 @@ async function connect() {
   }
 }
 
-
   async function selectUsuarioId(id) {
     const client = await connect();
     const query = "SELECT * FROM usuario WHERE idusuario = $1";
