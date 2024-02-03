@@ -43,19 +43,29 @@ async function connect() {
     await client.query(query, [id]);
   }
 
-  async function updateUsuario(data) {
+async function updateUsuario(data) {
   const client = await connect();
-  const query =
-    "UPDATE usuario SET nome = $1, email = $2, senha = $3, contato = $4 WHERE idusuario = $5";
-  const usuario = [data.nome, data.email, data.senha, data.contato, data.idusuario];
-  try {
-    const result = await client.query(query, usuario);
-  } catch (error) {
-    console.error("Erro na atualização do usuário:", error.message);
-  } finally {
-    await client.release();
+  const checkQuery = "SELECT idusuario FROM usuario WHERE contato = $1 AND idusuario != $2";
+  const checkParams = [data.contato, data.idusuario];
+  const checkResult = await client.query(checkQuery, checkParams);
+
+  if (checkResult.rows.length > 0) {
+    console.error("Erro na atualização do usuário: Contato duplicado.");
+  } else {
+    const updateQuery = "UPDATE usuario SET nome = $1, email = $2, senha = $3, contato = $4 WHERE idusuario = $5";
+    const usuario = [data.nome, data.email, data.senha, data.contato, data.idusuario];
+
+    try {
+      await client.query(updateQuery, usuario);
+      console.log("Usuário atualizado com sucesso!");
+    } catch (error) {
+      console.error("Erro na atualização do usuário:", error.message);
+    }
   }
+
+  await client.release();
 }
+
 
   async function selectUsuarioId(id) {
     const client = await connect();
