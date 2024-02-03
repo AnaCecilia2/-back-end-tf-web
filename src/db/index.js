@@ -81,13 +81,18 @@ async function connect() {
     return res.rows;
   }
 
-  async function selectAnuncio(nomeLivro) {
+  async function selectAnuncio(idanuncio) {
     const client = await connect();
-    const query = "SELECT * WHERE nomeLivro ILIKE $1";
-    const anuncio = [`${nomeLivro}%`];
-    const res = await client.query(query, anuncio);
-    return res.rows;
+    try {
+        const query = "SELECT * FROM anuncio WHERE idanuncio = $1";
+        const anuncio = [idanuncio];
+        const res = await client.query(query, anuncio);
+        return res.rows;
+    } finally {
+        client.release();
+    }
 }
+
 
 async function selectAnuncioId(id) {
   const client = await connect();
